@@ -23,16 +23,8 @@ stages:
     - task: Docker@2
       displayName: Push AzureDevOps to Hub Docker
       inputs:
-        containerRegistry: 'TechCommunityRegistry'
-        repository: 'HelloAzureDev'
+        containerRegistry: 'docker royyanhadi'
         command: 'buildAndPush'
-        dockerfile: '**/Dockerfile'
-        tags: |
-          $(tag)
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
         dockerfile: '$(Build.SourcesDirectory)/5.6-apache/Dockerfile'
         tags: |
           $(tag)
