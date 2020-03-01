@@ -24,6 +24,7 @@ stages:
       displayName: Push AzureDevOps to Hub Docker
       inputs:
         containerRegistry: 'docker royyanhadi'
+        repository: 'AzureDevOps'
         command: 'buildAndPush'
         dockerfile: '$(Build.SourcesDirectory)/5.6-apache/Dockerfile'
         tags: |
