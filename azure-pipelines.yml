@@ -21,6 +21,15 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
+      displayName: Push AzureDevOps to Hub Docker
+      inputs:
+        containerRegistry: 'TechCommunityRegistry'
+        repository: 'HelloAzureDev'
+        command: 'buildAndPush'
+        dockerfile: '**/Dockerfile'
+        tags: |
+          $(tag)
+    - task: Docker@2
       displayName: Build an image
       inputs:
         command: build
